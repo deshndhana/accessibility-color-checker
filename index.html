@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Color Checker | Test Color Contrast & Generate Accessible Palettes</title>
+    <meta name="description" content="Free tool to test color contrast ratios and generate accessible color palettes for web accessibility compliance">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header role="banner">
+        <div class="container">
+            <h1>Accessibility Color Checker</h1>
+            <p>Test color contrast ratios and generate WCAG-compliant color palettes</p>
+        </div>
+    </header>
+
+    <main role="main">
+        <div class="container">
+            <!-- Color Input Section -->
+            <section class="color-input-section" aria-labelledby="color-input-heading">
+                <h2 id="color-input-heading">Test Color Contrast</h2>
+                
+                <div class="color-inputs">
+                    <div class="color-input-group">
+                        <label for="foreground-color">Foreground Color</label>
+                        <div class="color-picker-container">
+                            <input type="color" id="foreground-color" value="#000000">
+                            <input type="text" id="foreground-hex" value="#000000" maxlength="7">
+                        </div>
+                    </div>
+                    
+                    <div class="color-input-group">
+                        <label for="background-color">Background Color</label>
+                        <div class="color-picker-container">
+                            <input type="color" id="background-color" value="#ffffff">
+                            <input type="text" id="background-hex" value="#ffffff" maxlength="7">
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="check-contrast" class="btn-primary">Check Contrast</button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" aria-labelledby="results-heading" hidden>
+                <h2 id="results-heading">Contrast Results</h2>
+                
+                <div class="contrast-preview">
+                    <div class="preview-box" id="contrast-preview">
+                        <span id="preview-text">Sample Text</span>
+                    </div>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Contrast Ratio</h3>
+                        <div class="ratio-value" id="contrast-ratio">21:1</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>WCAG Compliance</h3>
+                        <div class="compliance-results" id="compliance-results">
+                            <div class="compliance-item">
+                                <span class="level">AA</span>
+                                <span class="status pass">Pass</span>
+                            </div>
+                            <div class="compliance-item">
+                                <span class="level">AAA</span>
+                                <span class="status pass">Pass</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Palette Generator Section -->
+            <section class="palette-section" aria-labelledby="palette-heading">
+                <h2 id="palette-heading">Generate Accessible Palette</h2>
+                
+                <div class="palette-controls">
+                    <div class="control-group">
+                        <label for="base-color">Base Color</label>
+                        <div class="color-picker-container">
+                            <input type="color" id="base-color" value="#3a86ff">
+                            <input type="text" id="base-hex" value="#3a86ff" maxlength="7">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="palette-type">Palette Type</label>
+                        <select id="palette-type">
+                            <option value="monochromatic">Monochromatic</option>
+                            <option value="analogous">Analogous</option>
+                            <option value="complementary">Complementary</option>
+                            <option value="triadic">Triadic</option>
+                        </select>
+                    </div>
+                    
+                    <button id="generate-palette" class="btn-primary">Generate Palette</button>
+                </div>
+                
+                <div class="palette-results" id="palette-results">
+                    <!-- Generated palette will appear here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <p>This tool helps ensure your color choices meet WCAG accessibility standards.</p>
+            <p>WCAG 2.1 requires a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
